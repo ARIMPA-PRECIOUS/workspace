@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 23%;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hospital Management System</h1>
+    <p>Dashboard Overview</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+        <div class="card">
+            <h3>Total Patients</h3>
+            <h2>245</h2>
+        </div>
+
+        <div class="card">
+            <h3>Available Beds</h3>
+            <h2>32</h2>
+        </div>
+
+        <div class="card">
+            <h3>Appointments Today</h3>
+            <h2>18</h2>
+        </div>
+
+        <div class="card">
+            <h3>Doctors On Duty</h3>
+            <h2>12</h2>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Hospital Activities</h2>
+        <ul>
+            <li>New patient registration</li>
+            <li>Laboratory test updates</li>
+            <li>Surgery schedules</li>
+            <li>Pharmacy stock updates</li>
+            <li>Billing and payments</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Notifications</h2>
+        <ul>
+            <li>Dr. Smith is on leave tomorrow.</li>
+            <li>COVID-19 vaccination drive this Friday.</li>
+            <li>Staff meeting at 3:00 PM.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Alerts</h2>
+        <ul>
+            <li class="alert">Emergency case in ICU.</li>
+            <li class="alert">Low blood supply in Blood Bank.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

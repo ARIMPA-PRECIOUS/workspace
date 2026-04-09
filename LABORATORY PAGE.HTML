@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab Test Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, select, button { margin: 5px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Lab Test Management System</h1>
+
+  <!-- Patient Section -->
+  <h2>Add Patient</h2>
+  <input type="text" id="patientName" placeholder="Patient Name">
+  <button onclick="addPatient()">Add Patient</button>
+
+  <select id="patientList"></select>
+
+  <!-- Lab Test Section -->
+  <h2>Add Lab Test</h2>
+  <input type="text" id="testName" placeholder="Test Name">
+  <button onclick="addTest()">Add Test</button>
+
+  <select id="testList"></select>
+
+  <!-- Record Test Results -->
+  <h2>Record Test Result</h2>
+  <input type="text" id="resultValue" placeholder="Result Value">
+  <button onclick="recordResult()">Record Result</button>
+
+  <!-- Report Section -->
+  <h2>Patient Reports</h2>
+  <button onclick="printReport()">Print Report</button>
+
+  <div id="reportArea"></div>
+
+  <script>
+    let patients = [];
+    let tests = [];
+    let results = [];
+
+    function addPatient() {
+      const name = document.getElementById("patientName").value.trim();
+      if(name) {
+        patients.push({ id: patients.length + 1, name });
+        updatePatientList();
+        document.getElementById("patientName").value = "";
+      } else {
+        alert("Enter patient name");
+      }
+    }
+
+    function addTest() {
+      const testName = document.getElementById("testName").value.trim();
+      if(testName) {
+        tests.push({ id: tests.length + 1, name: testName });
+        updateTestList();
+        document.getElementById("testName").value = "";
+      } else {
+        alert("Enter test name");
+      }
+    }
+
+    function updatePatientList() {
+      const select = document.getElementById("patientList");
+      select.innerHTML = "";
+      patients.forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.id;
+        option.text = p.name;
+        select.add(option);
+      });
+    }
+
+    function updateTestList() {
+      const select = document.getElementById("testList");
+      select.innerHTML = "";
+      tests.forEach(t => {
+        const option = document.createElement("option");
+        option.value = t.id;
+        option.text = t.name;
+        select.add(option);
+      });
+    }
+
+    function recordResult() {
+      const patientId = parseInt(document.getElementById("patientList").value);
+      const testId = parseInt(document.getElementById("testList").value);
+      const value = document.getElementById("resultValue").value.trim();
+
+      if(patientId && testId && value) {
+        results.push({ patientId, testId, value });
+        alert("Result recorded");
+        document.getElementById("resultValue").value = "";
+      } else {
+        alert("Select patient, test and enter result");
+      }
+    }
+
+    function printReport() {
+      const reportArea = document.getElementById("reportArea");
+      reportArea.innerHTML = "";
+      patients.forEach(p => {
+        const patientResults = results.filter(r => r.patientId === p.id);
+        if(patientResults.length > 0) {
+          const div = document.createElement("div");
+          div.innerHTML = `<h3>${p.name}</h3>`;
+          const table = document.createElement("table");
+          const header = table.insertRow();
+          header.innerHTML = "<th>Test</th><th>Result</th>";
+          patientResults.forEach(r => {
+            const testName = tests.find(t => t.id === r.testId)?.name;
+            const row = table.insertRow();
+            row.innerHTML = `<td>${testName}</td><td>${r.value}</td>`;
+          });
+          div.appendChild(table);
+          reportArea.appendChild(div);
+        }
+      });
+      window.print(); // optional: open print dialog
+    }
+  </script>
+</body>
+</html>

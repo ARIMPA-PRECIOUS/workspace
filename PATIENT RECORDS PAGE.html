@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Patient Records</h1>
+
+<div class="container">
+
+    <!-- Patient Details -->
+    <div class="card">
+        <h2>Patient Details</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Age:</strong> 35</p>
+        <p><strong>Gender:</strong> Male</p>
+        <p><strong>Contact:</strong> 0700000000</p>
+        <p><strong>Address:</strong> Kampala, Uganda</p>
+    </div>
+
+    <!-- Diagnosis Information -->
+    <div class="card">
+        <h2>Diagnosis Information</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Diagnosis</th>
+                <th>Doctor</th>
+            </tr>
+            <tr>
+                <td>2026-02-20</td>
+                <td>Malaria</td>
+                <td>Dr. Smith</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Treatment History -->
+    <div class="card">
+        <h2>Treatment History</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Treatment</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>2026-02-20</td>
+                <td>Antimalarial Injection</td>
+                <td>Administered successfully</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Lab Results -->
+    <div class="card">
+        <h2>Lab Results</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Test</th>
+                <th>Result</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>2026-02-19</td>
+                <td>Blood Test</td>
+                <td>Positive for Malaria</td>
+                <td>Abnormal</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Prescription Records -->
+    <div class="card">
+        <h2>Prescription Records</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Medicine</th>
+                <th>Dosage</th>
+                <th>Duration</th>
+            </tr>
+            <tr>
+                <td>2026-02-20</td>
+                <td>Coartem</td>
+                <td>2 tablets twice daily</td>
+                <td>3 days</td>
+            </tr>
+        </table>
+    </div>
+
+    <button class="btn" onclick="printRecord()">Print Record</button>
+
+</div>
+
+<script>
+function printRecord() {
+    window.print();
+}
+</script>
+
+</body>
+</html>
